@@ -13,4 +13,13 @@ module Exercise2 (
     output logic [15:0] out
 );
 
+        logic feedback_bit;
+
+        always_ff @ (posedge clk or negedge nReset) begin
+                if (!rst_n) begin
+                        out <= init;
+                end else begin
+                        feedback = out[15] ^ out[13] ^ out[12] >                        out <= {out[14:0], feedback};
+                end
+        end
 endmodule
