@@ -13,4 +13,9 @@ module Exercise1 (
     output [7:0] out
 );
 
+    assign out = (op == 2'b00) ? (a + b) :  // Add
+                 (op == 2'b01) ? (a - b) :  // Subtract
+                 (op == 2'b10) ? (a & b) :  // Bitwise AND
+                 (a | b);                   // Bitwise OR
 endmodule
+
